@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Feed</title>
+	<div th:replace="fragments/headScripts.html"></div>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="fragments/navbar"></div>
+        <h2>Tweets</h2>
+         <div th:if="${not #lists.isEmpty(tweetList)}">
+        	<div class="list-group" th:each="tweet:${tweetList}">
+            <div class="list-group-item"> <h5>@<span th:text="${tweet.user.username}"></span>
+            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
+            <p th:utext="${tweet.message}"></p>
+    	</div></div>
+    </div>
+    <div th:if="${#lists.isEmpty(tweetList)}">
+    	<h3>No Recent Tweets</h3>
+    </div>
+</body>
