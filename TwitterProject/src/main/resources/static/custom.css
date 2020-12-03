@@ -4,6 +4,18 @@
 }
 
 .list-group-item {
-	border-color: #00aced;
-	background-color: #e6f8ff;
+	border-color: #b8a3f5;
+	background-color: #efebf9;
+	margin-bottom: 20px !important;
+	border-radius: 5px;
 }
+
+a.username {
+    color: #00aced
+}
+
+a.tag {
+    color: #0084b4
+}
+
+ 
