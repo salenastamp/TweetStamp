@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head>
+<head th:replace="fragments/headScripts.html">
     <title>New Tweet</title>
-	<div th:replace="fragments/headScripts.html"></div>
 </head>
 <body>
     <div class="container">
-        <div th:replace="fragments/navbar"></div>
+  <div th:replace="fragments/navbar"></div>
+	<h2>New Tweet</h2><br/>
         <div class="jumbotron col-md-8 col-md-offset-2">
-            <h2>New Tweet</h2><br/>
+            
             <form th:action="@{/tweets}" th:object="${tweet}" method="post" autocomplete="off">
       			<div class="form-group">
         			<textarea rows="5" th:field="*{message}" placeholder="What's happening?" class="form-control"></textarea>

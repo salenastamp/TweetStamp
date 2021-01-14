@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-		<div th:replace="fragments/navbar"></div>
+  <div th:replace="fragments/navbar"></div>
 		<form th:action="@{/follow/} + ${user.username}" th:if="${!following && !isSelfPage}" method="post">
 	    	<button style="float:right" type="Submit" class="btn btn-lg btn-success">Follow</button>
 		</form>

@@ -7,8 +7,10 @@
 	<div class="container">
 		<div th:replace="fragments/navbar"></div>
 		<h2>Tags</h2>
+		<div class="tags">
 		<div class="list-group" th:each="tag:${tagList}"> 
 		<a class="username" th:href="@{/tweets/} + ${tag.phrase}"><span th:text="${tag.phrase}"></span></a>
+	  </div>
 	  </div>
 	</div>
 </body>

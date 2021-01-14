@@ -38,9 +38,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/console/**").permitAll().antMatchers("/login").permitAll()
-				.antMatchers("/signup").permitAll().antMatchers("/custom.js").permitAll().antMatchers("/custom.css")
-				.permitAll().antMatchers().hasAuthority("USER").anyRequest().authenticated().and().csrf().disable()
+		http.authorizeRequests().antMatchers("/console/**")
+			.permitAll().antMatchers("/login").permitAll()
+				.antMatchers("/signup").permitAll()
+				.antMatchers("/custom.js").permitAll()
+				.antMatchers("/custom.css").permitAll()
+				.antMatchers("/TwitStamp.png").permitAll()
+				.antMatchers().hasAuthority("USER").anyRequest().authenticated().and().csrf().disable()
 				.formLogin().loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/tweets")
 				.usernameParameter("username").passwordParameter("password").and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").and()
